@@ -1,7 +1,6 @@
 <div align="center">
 
 # Arthur Fernandes
-
 ### Portfólio de projetos em Redes, Infraestrutura e Linux
 
 </div>
@@ -20,10 +19,10 @@ Aqui estão reunidos laboratórios práticos, scripts e anotações voltados pri
 
 | Repositório | Descrição | Status |
 |:---|:---|:---:|
-| [`laboratorios-redes`](./laboratorios-redes) | Laboratórios de Redes de Computadores utilizando Cisco Packet Tracer. | 🚧 Em progresso |
-| [`analise-trafego`](./analise-trafego) | Estudos de captura e análise de pacotes com Wireshark. | 🚧 Em progresso |
-| [`laboratorios-linux`](./laboratorios-linux) | Scripts de automação e administração em Debian e CentOS. | 🚧 Em progresso |
-| [`certificados`](./certificados) | Certificados e cursos concluídos durante a graduação e estudos complementares. | 📚 Em atualização |
+| [`laboratorios-redes`](https://github.com/arthurfernandes97-lab/laboratorios-redes) | Laboratórios de Redes de Computadores utilizando Cisco Packet Tracer. | 🚧 Em progresso |
+| [`analise-trafego`](https://github.com/arthurfernandes97-lab/analise-trafego) | Estudos de captura e análise de pacotes com Wireshark. | 🚧 Em progresso |
+| [`laboratorios-linux`](https://github.com/arthurfernandes97-lab/laboratorios-linux) | Laboratórios práticos de administração e permissões em GNU/Linux. | 🚧 Em progresso |
+| [`certificados`](https://github.com/arthurfernandes97-lab/certificados) | Certificados e cursos concluídos durante a graduação e estudos complementares. | 📚 Em atualização |
 
 > Esta lista será atualizada conforme novos projetos forem desenvolvidos.
 
