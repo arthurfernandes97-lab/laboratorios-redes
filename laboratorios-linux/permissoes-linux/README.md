@@ -205,4 +205,4 @@ Estudante de Ciência da Computação
 Focado em Infraestrutura, Redes de Computadores e GNU/Linux.
 
 **LinkedIn:**
-https://www.linkedin.com/in/arthur-fernandes-289395272
+[Arthur Fernandes](https://www.linkedin.com/in/arthur-fernandes-289395272)
