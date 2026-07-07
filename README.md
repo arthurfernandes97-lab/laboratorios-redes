@@ -58,4 +58,4 @@ Cada projeto possui um `README.md` com a documentação do laboratório ou estud
 
 ## Contato
 
-- LinkedIn: <https://www.linkedin.com/in/arthur-fernandes-289395272>
+- LinkedIn: [Arthur Fernandes](https://www.linkedin.com/in/arthur-fernandes-289395272)
