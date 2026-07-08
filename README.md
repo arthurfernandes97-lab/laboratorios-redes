@@ -7,7 +7,7 @@ Laboratórios de Redes de Computadores utilizando Cisco Packet Tracer.
 
 ---
 
-### 🦈 [Análise de Tráfego](https://github.com/arthurfernandes97/portfolio/tree/main/laboratorios-redes/analise-trafego)
+### 🦈 [Análise de Tráfego](https://github.com/arthurfernandes97/portfolio/tree/main/analise-trafego)
 Estudos de captura e análise de pacotes com Wireshark.
 
 **Status:** 🚧 Em progresso
