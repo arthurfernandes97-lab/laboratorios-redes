@@ -1,4 +1,4 @@
-# Laboratório Linux — Diretórios Compartilhados com SGID e Sticky Bit
+# Laboratório Linux - Diretórios Compartilhados com SGID e Sticky Bit
 
 Laboratório sobre permissões especiais em diretórios compartilhados. O foco foi entender duas permissões que eu não tinha usado na prática ainda: SGID (herança automática de grupo) e Sticky Bit (proteção contra exclusão de arquivo por outro usuário do mesmo grupo).
 
@@ -71,7 +71,7 @@ drwxrwx--- 2 root equipe 4096 Jul  7 16:44 compartilhado
 
 ---
 
-## Parte 1 — Sem SGID (comportamento padrão)
+## Parte 1 - Sem SGID (comportamento padrão)
 
 Logado como `joao`, criei um arquivo dentro do diretório compartilhado pra ver o que acontecia sem nenhuma permissão especial:
 
@@ -92,7 +92,7 @@ O grupo do arquivo veio como `joao`, não `equipe`. Faz sentido — sem SGID, o 
 
 ---
 
-## Parte 2 — Aplicando SGID
+## Parte 2 - Aplicando SGID
 
 Voltei pra root e apliquei o SGID no diretório:
 
@@ -131,7 +131,7 @@ Dessa vez o grupo do arquivo saiu `equipe`, herdado do diretório. Dá pra ver b
 
 ---
 
-## Parte 3 — Sticky Bit
+## Parte 3 - Sticky Bit
 
 Ainda como root, apliquei o Sticky Bit em cima do que já estava configurado:
 
