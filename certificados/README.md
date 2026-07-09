@@ -13,22 +13,22 @@ Este repositório reúne os certificados dos cursos concluídos durante minha fo
 
 ## Networking Basics
 
-![Networking Basics](./redes-basico-cisco.png)
+![Networking Basics](images/redes-basico-cisco.png)
 
 ---
 
 ## GNU/Linux
 
-![GNU/Linux](./linux-udemy.png)
+![GNU/Linux](images/linux-udemy.png)
 
 ---
 
 ## Redes de Computadores TCP/IP e Wireshark
 
-![TCP/IP e Wireshark](./redes-de-computadores-udemy.png)
+![TCP/IP e Wireshark](images/redes-de-computadores-udemy.png)
 
 ---
 
 ## Cibersegurança
 
-![Cibersegurança](./ciberseguranca-udemy.png)
+![Cibersegurança](images/ciberseguranca-udemy.png)
