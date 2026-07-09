@@ -14,7 +14,7 @@ Para localizar o tráfego de DNS e TCP mais fácil, apliquei o filtro:
 ```
 tcp || dns
 ```
-Isso reduziu de 107 pacotes pra 29, deixando só o que interessava pra análise.
+Isso reduziu de 107 pacotes para 29, deixando só o que interessava pra análise.
 
 <p align="center">
 <img src="01-filtragem.png" width="1000">
