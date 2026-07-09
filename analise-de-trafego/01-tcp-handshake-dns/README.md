@@ -17,7 +17,7 @@ tcp || dns
 Isso reduziu de 107 pacotes para 29, deixando só o que interessava pra análise.
 
 <p align="center">
-<img src="01-filtragem.png" width="1000">
+<img src="images/01-filtragem.png" width="1000">
 </p>
 
 ## Fluxo de Análise
@@ -28,13 +28,13 @@ Antes de conectar no servidor, o cliente precisa saber o IP do domínio. Pra iss
 **Linhas 9 e 12 - consulta o registro A (IPv4)**
 
 <p align="center">
-<img src="02-query-a.png" width="1000">
+<img src="images/02-query-a.png" width="1000">
 </p>
 
 **Linhas 14 e 16 - consulta o registro AAAA (IPv6)**
 
 <p align="center">
-<img src="03-query-aaaa.png" width="1000">
+<img src="images/03-query-aaaa.png" width="1000">
 </p>
 
 ### 2. Three-Way Handshake
@@ -45,7 +45,7 @@ Com o IP resolvido, começa o handshake com o servidor na porta 80 (HTTP):
 - **28 (ACK):** o cliente confirma, e a conexão fica estabelecida.
 
 <p align="center">
-<img src="04-sincronizacao.png" width="1000">
+<img src="images/04-sincronizacao.png" width="1000">
 </p>
 
 ### 3. Requisição HTTP
@@ -57,7 +57,7 @@ Host: www.example.com
 Como a comunicação utiliza HTTP na porta 80 (sem TLS), o conteúdo trafega em texto claro, sem criptografia.
 
 <p align="center">
-<img src="05-http.png" width="1000">
+<img src="images/05-http.png" width="1000">
 </p>
 
 ## Tecnologias utilizadas
