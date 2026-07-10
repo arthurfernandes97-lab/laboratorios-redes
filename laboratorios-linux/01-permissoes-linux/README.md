@@ -2,16 +2,11 @@
 
 Laboratório sobre permissões especiais em diretórios compartilhados. O foco foi entender duas permissões que eu não tinha usado na prática ainda: SGID (herança automática de grupo) e Sticky Bit (proteção contra exclusão de arquivo por outro usuário do mesmo grupo).
 
----
+## Tecnologias Utilizadas
 
-## Tecnologias utilizadas
-
-- Debian 12
-- GNU/Linux
-- Bash
-- VirtualBox
-
----
+- **Virtualização:** Oracle VirtualBox
+- **Sistemas Operacionais:** Debian
+- **Ferramentas:** GNU/Linux, Bash
 
 ## Cenário
 
@@ -21,15 +16,11 @@ Antes de qualquer configuração especial, dois problemas aparecem:
 - arquivos criados dentro do diretório não herdam o grupo do diretório, e sim o grupo pessoal de quem criou;
 - qualquer usuário com permissão de escrita no diretório pode apagar arquivos de outro usuário.
 
----
-
 ## Ambiente
 
 - Distribuição: Debian (VM local, VirtualBox)
 - Usuários de teste: `joao`, `jose`
 - Grupo de teste: `equipe`
-
----
 
 ## Preparação
 
@@ -69,8 +60,6 @@ drwxrwx--- 2 root equipe 4096 Jul  7 16:44 compartilhado
 <img src="images/01-preparacao.png" width="850">
 </p>
 
----
-
 ## Parte 1 - Sem SGID (comportamento padrão)
 
 Logado como `joao`, criei um arquivo dentro do diretório compartilhado pra ver o que acontecia sem nenhuma permissão especial:
@@ -89,8 +78,6 @@ O grupo do arquivo veio como `joao`, não `equipe`. Faz sentido — sem SGID, o 
 <p align="center">
 <img src="images/02-sem-sgid.png" width="850">
 </p>
-
----
 
 ## Parte 2 - Aplicando SGID
 
@@ -129,8 +116,6 @@ Dessa vez o grupo do arquivo saiu `equipe`, herdado do diretório. Dá pra ver b
 <img src="images/04-comparando.png" width="850">
 </p>
 
----
-
 ## Parte 3 - Sticky Bit
 
 Ainda como root, apliquei o Sticky Bit em cima do que já estava configurado:
@@ -162,8 +147,6 @@ Bloqueou nas duas tentativas, mesmo com o `-f`. Isso confirma que a restrição 
 <img src="images/05-sticky-bit.png" width="850">
 </p>
 
----
-
 ## Troubleshooting
 
 Alguns problemas apareceram no meio do processo, principalmente na parte de preparação do ambiente:
@@ -176,8 +159,6 @@ Outra coisa que reparei: os usuários `joao` e `jose` foram criados sem a flag `
 
 Por fim, tentei rodar `chown equipe compartilhado/` esperando que isso mudasse o grupo — deu erro de `invalid user: 'equipe'`, porque `chown` sozinho espera um usuário, não um grupo. A forma certa é `chown root:equipe compartilhado/`, que define dono e grupo de uma vez.
 
----
-
 ## Permissões finais aplicadas
 
 | Permissão | Valor | Efeito |
@@ -186,15 +167,11 @@ Por fim, tentei rodar `chown equipe compartilhado/` esperando que isso mudasse o
 | SGID | `2770` | Arquivos criados dentro do diretório herdam o grupo `equipe` |
 | Sticky Bit | `3770` | Cada usuário só pode apagar os próprios arquivos, mesmo com escrita liberada para o grupo |
 
----
-
 ## Aprendizados
 
 Esse laboratório deixou bem claro por que SGID e Sticky Bit existem separados do `chmod` comum. Sem o SGID, seria necessário rodar `chgrp` manualmente toda vez que alguém criasse um arquivo no diretório — algo fácil de esquecer, especialmente com vários usuários usando o mesmo espaço. E sem o Sticky Bit, ter escrita compartilhada no grupo significa, na prática, que qualquer um pode apagar o que quiser dentro do diretório, não só o que criou.
 
 A parte de troubleshooting acabou rendendo mais aprendizado do que eu esperava. Os erros de PATH e de sintaxe do `su` não tinham nada a ver com SGID ou Sticky Bit diretamente, mas mostraram detalhes de como o Linux lida com sessões e variáveis de ambiente que eu não tinha parado pra entender antes.
-
----
 
 ## Autor
 
