@@ -50,7 +50,7 @@ firewall-cmd --reload
 </p>
 
 ## 4. Testando o bloqueio
-Tentei conectar de novo do Debian. Dessa vez não conectou:
+Tentei conectar novamente pelo Debian. Dessa vez não conectou:
 ```
 ssh: connect to host 10.0.0.3 port 22: No route to host
 ```
@@ -71,7 +71,7 @@ firewall-cmd --reload
 </p>
 
 ## 6. Confirmando que voltou
-Testei o SSH de novo do Debian, e dessa vez conectou normalmente.
+Testei o SSH novamente no Debian, e dessa vez conectou normalmente.
 
 <p align="center">
 <img src="./images/08-teste-ssh-final.png" width="600">
