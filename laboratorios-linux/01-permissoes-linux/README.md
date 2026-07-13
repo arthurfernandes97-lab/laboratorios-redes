@@ -60,6 +60,8 @@ drwxrwx--- 2 root equipe 4096 Jul  7 16:44 compartilhado
 <img src="images/01-preparacao.png" width="850">
 </p>
 
+---
+
 ## Parte 1 - Sem SGID (comportamento padrão)
 
 Logado como `joao`, criei um arquivo dentro do diretório compartilhado pra ver o que acontecia sem nenhuma permissão especial:
@@ -78,6 +80,8 @@ O grupo do arquivo veio como `joao`, não `equipe`. Faz sentido — sem SGID, o 
 <p align="center">
 <img src="images/02-sem-sgid.png" width="850">
 </p>
+
+---
 
 ## Parte 2 - Aplicando SGID
 
@@ -98,6 +102,8 @@ O `s` no lugar do `x` da permissão de grupo confirma que o SGID está ativo.
 <img src="images/03-aplicando-sgid.png" width="850">
 </p>
 
+---
+
 Repeti o teste, de novo como `joao`:
 
 ```bash
@@ -115,6 +121,8 @@ Dessa vez o grupo do arquivo saiu `equipe`, herdado do diretório. Dá pra ver b
 <p align="center">
 <img src="images/04-comparando.png" width="850">
 </p>
+
+---
 
 ## Parte 3 - Sticky Bit
 
@@ -146,6 +154,8 @@ Bloqueou nas duas tentativas, mesmo com o `-f`. Isso confirma que a restrição 
 <p align="center">
 <img src="images/05-sticky-bit.png" width="850">
 </p>
+
+---
 
 ## Troubleshooting
 
