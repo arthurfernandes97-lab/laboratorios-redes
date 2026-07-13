@@ -31,6 +31,7 @@ Cada departamento fica em uma rede diferente, então sem configuração nenhuma 
 <img src="images/01-topologia.png" width="1000">
 </p>
 
+---
 
 ## Endereçamento
 
@@ -67,6 +68,7 @@ Na interface que liga o switch ao roteador, configurei modo trunk com encapsulam
 <img src="images/02-config-switch.png" width="850">
 </p>
 
+---
 
 ## Configuração do Roteador
 
@@ -82,6 +84,8 @@ Cada subinterface recebeu o IP de gateway correspondente à VLAN, permitindo que
 <img src="images/03-config-roteador.png" width="850">
 </p>
 
+---
+
 ## Topologia Detalhada
 
 Essa é a topologia final, já com as VLANs, a porta trunk e as subinterfaces do roteador configuradas.
@@ -90,6 +94,7 @@ Essa é a topologia final, já com as VLANs, a porta trunk e as subinterfaces do
 <img src="images/04-topologia-final.png" width="1000">
 </p>
 
+---
 
 ## Validação
 
@@ -100,6 +105,8 @@ Depois de finalizar a configuração, fiz alguns testes de ping entre as VLANs p
 <br><br>
 <img src="images/06-teste-ping2.png" width="1200">
 </p>
+
+---
 
 ## Competências Demonstradas
 
