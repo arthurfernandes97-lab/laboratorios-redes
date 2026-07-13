@@ -31,12 +31,16 @@ Criei uma pasta (`Pasta-CentOS`) no CentOS para confirmar depois, na conexão SS
 <img src="./images/03-criacao-diretorio-centos.png" width="600">
 </p>
 
+---
+
 ## 2. Acesso SSH
 Com o ambiente pronto, testei o SSH do Debian pro CentOS antes de mexer em qualquer regra de firewall. Funcionou de primeira, e o `ls` mostrou a pasta que eu tinha criado, confirmando que estava no lugar certo.
 
 <p align="center">
 <img src="./images/04-teste-ssh-inicial.png" width="600">
 </p>
+
+---
 
 ## 3. Bloqueando o SSH no firewall
 Rodei um `firewall-cmd --list-all` e vi que o serviço SSH estava liberado. Removi com:
@@ -50,6 +54,8 @@ firewall-cmd --reload
 <img src="./images/05-remocao-ssh-firewall.png" width="800">
 </p>
 
+---
+
 ## 4. Testando o bloqueio
 Tentei conectar novamente pelo Debian. Dessa vez não conectou:
 ```
@@ -59,6 +65,8 @@ ssh: connect to host 10.0.0.3 port 22: No route to host
 <p align="center">
 <img src="./images/06-erro-conexao.png" width="600">
 </p>
+
+---
 
 ## 5. Revertendo
 Voltei o serviço no firewall:
@@ -71,12 +79,16 @@ firewall-cmd --reload
 <img src="./images/07-reversao-ssh.png" width="600">
 </p>
 
+---
+
 ## 6. Confirmando que voltou
 Testei o SSH novamente no Debian, e dessa vez conectou normalmente.
 
 <p align="center">
 <img src="./images/08-teste-ssh-final.png" width="600">
 </p>
+
+---
 
 ## Conclusão
 Esse lab deixou claro que o `firewalld` controla direto quais serviços conseguem receber conexão de fora. Com o SSH liberado, a conexão funciona. Sem essa permissão, ela passa a retornar "No route to host", mesmo com o resto da rede configurado corretamente.
