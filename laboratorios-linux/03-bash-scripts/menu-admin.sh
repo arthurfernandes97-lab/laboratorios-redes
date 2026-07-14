@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Criando ferramenta de administração de sistemas
 
 opcao="x"
