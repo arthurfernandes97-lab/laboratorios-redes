@@ -7,9 +7,9 @@ Esse laboratório tem como objetivo investigar picos de latência numa captura d
 Usei um arquivo de captura de referência da comunidade Wireshark, focado em atrasos de rede.
 
 - **Fonte:** https://wiki.wireshark.org/samplecaptures
-- **Arquivo usado:** [nfs_bad_stalls.cap](./nfs_bad_stalls.cap), descrito na wiki como uma captura NFS com atrasos de 38ms no meio de várias respostas de leitura. 
+- **Arquivo usado:** [nfs_bad_stalls.cap](./nfs_bad_stalls.cap), descrito na wiki como uma captura NFS com atrasos de 38ms no meio de várias respostas de leitura
   
-`Arquivo disponível para download neste repositório`
+`Arquivo disponível para download neste repositório.`
 
 ## Tecnologias utilizadas
 - Wireshark
