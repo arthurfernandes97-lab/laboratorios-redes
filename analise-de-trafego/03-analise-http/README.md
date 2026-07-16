@@ -7,7 +7,9 @@ Nesse laboratório tive como objetivo analisar uma captura de navegação HTTP, 
 Usei um arquivo de captura de referência da comunidade Wireshark.
 
 - **Fonte:** https://wiki.wireshark.org/samplecaptures
-- **Arquivo usado:** [`http.cap`](./http.cap). `Disponível para download neste repositório`
+- **Arquivo usado:** [`http.cap`](./http.cap)
+ 
+`Arquivo disponível para download neste repositório.`
 
 ## Tecnologias utilizadas
 
