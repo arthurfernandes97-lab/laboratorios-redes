@@ -14,7 +14,7 @@ A rede tem 4 VLANs: Vendas (172.16.10.0/24), Administração (172.16.20.0/24), T
 O roteador fica conectado a dois switches, cada um levando duas VLANs. A ideia é configurar esses links como trunk e criar uma subinterface por VLAN no roteador (router-on-a-stick). Nesse print a topologia ainda está sem nenhuma configuração, os links aparecem sem conectividade porque nada tinha sido configurado ainda.
 
 <p align="center">
-<img src="images/01-topologia.png" width="850">
+<img src="imagens/01-topologia.png" width="850">
 </p>
 
 ---
@@ -25,7 +25,7 @@ Em cada switch, criei as VLANs, coloquei as portas dos hosts em modo access na V
 **Switch 1 (Vendas e Administração):**
 
 <p align="center">
-<img src="images/02-config-switch1.png" width="950">
+<img src="imagens/02-config-switch1.png" width="950">
 </p>
 
 ---
@@ -33,7 +33,7 @@ Em cada switch, criei as VLANs, coloquei as portas dos hosts em modo access na V
 **Switch 2 (TI e Servidor):**
 
 <p align="center">
-<img src="images/03-config-switch2.png" width="950">
+<img src="imagens/03-config-switch2.png" width="950">
 </p>
 
 ---
@@ -42,7 +42,7 @@ Em cada switch, criei as VLANs, coloquei as portas dos hosts em modo access na V
 Criei uma subinterface por VLAN, cada uma com `encapsulation dot1Q` e o IP de gateway daquela rede. Nas subinterfaces das VLANs de cliente (10, 20 e 30), adicionei o `ip helper-address` apontando pro IP do servidor DHCP, pra encaminhar o broadcast das requisições até ele.
 
 <p align="center">
-<img src="images/04-config-router.png" width="600">
+<img src="imagens/04-config-router.png" width="600">
 </p>
 
 Nesse processo tive dois erros de digitação/sintaxe que valem registrar:
@@ -65,11 +65,11 @@ Comando de modo EXEC (como `show`) não roda direto dentro do modo `config` — 
 Configurei o IP estático do servidor, e os três pools (um por VLAN de cliente), cada um com o gateway, a faixa de IPs e a máscara certos.
 
 <p align="center">
-<img src="images/05-ip-servidor.png" width="500">
+<img src="imagens/05-ip-servidor.png" width="500">
 </p>
 
 <p align="center">
-<img src="images/06-config-servidor-dhcp.png" width="1000">
+<img src="imagens/06-config-servidor-dhcp.png" width="1000">
 </p>
 
 ---
@@ -78,11 +78,11 @@ Configurei o IP estático do servidor, e os três pools (um por VLAN de cliente)
 VLAN 10 e VLAN 20 pegaram IP via DHCP sem problema, confirmando que o relay estava funcionando nessas duas.
 
 <p align="center">
-<img src="images/07-teste-dhcp-vlan10.png" width="1000">
+<img src="imagens/07-teste-dhcp-vlan10.png" width="1000">
 </p>
 
 <p align="center">
-<img src="images/08-teste-dhcp-vlan20.png" width="1000">
+<img src="imagens/08-teste-dhcp-vlan20.png" width="1000">
 </p>
 
 ---
@@ -94,7 +94,7 @@ DHCP request failed.
 ```
 
 <p align="center">
-<img src="images/09-erro-dhcp-vlan30.png" width="1000">
+<img src="imagens/09-erro-dhcp-vlan30.png" width="1000">
 </p>
 
 Fui comparar a configuração da subinterface `g0/0/1.30` com as outras que estavam funcionando, usando:
@@ -111,7 +111,7 @@ ip helper-address 172.16.40.2
 ```
 
 <p align="center">
-<img src="images/10-solucionando-erro.png" width="600">
+<img src="imagens/10-solucionando-erro.png" width="600">
 </p>
 
 ---
@@ -120,7 +120,7 @@ ip helper-address 172.16.40.2
 Depois do ajuste, os hosts da VLAN 30 conseguiram pegar IP normalmente.
 
 <p align="center">
-<img src="images/11-teste-dhcp-vlan30.png" width="1000">
+<img src="imagens/11-teste-dhcp-vlan30.png" width="1000">
 </p>
 
 ---
@@ -129,7 +129,7 @@ Depois do ajuste, os hosts da VLAN 30 conseguiram pegar IP normalmente.
 Com as 4 redes funcionando, testei ping do PC1 (VLAN 10) até um host de cada VLAN, incluindo o servidor. Todos os pings tiveram sucesso, confirmando que o roteamento entre VLANs e o DHCP Relay estão funcionando de ponta a ponta.
 
 <p align="center">
-<img src="images/12-teste-conectividade-final.png" width="1000">
+<img src="imagens/12-teste-conectividade-final.png" width="1000">
 </p>
 
 ---

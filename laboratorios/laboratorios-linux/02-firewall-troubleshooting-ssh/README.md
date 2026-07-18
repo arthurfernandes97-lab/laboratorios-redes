@@ -16,19 +16,19 @@ Configurei o IP das duas máquinas para elas se enxergarem:
 - **CentOS (Servidor):** 10.0.0.3
 
 <p align="center">
-<img src="./images/01-configurando-ip.png" width="1000">
+<img src="./imagens/01-configurando-ip.png" width="1000">
 </p>
 
 Testei a conectividade com ping.
 
 <p align="center">
-<img src="./images/02-testando-conectividade.png" width="1000">
+<img src="./imagens/02-testando-conectividade.png" width="1000">
 </p>
 
 Criei uma pasta (`Pasta-CentOS`) no CentOS para confirmar depois, na conexão SSH, que eu realmente estava acessando aquela máquina e não outra.
 
 <p align="center">
-<img src="./images/03-criacao-diretorio-centos.png" width="600">
+<img src="./imagens/03-criacao-diretorio-centos.png" width="600">
 </p>
 
 ---
@@ -37,7 +37,7 @@ Criei uma pasta (`Pasta-CentOS`) no CentOS para confirmar depois, na conexão SS
 Com o ambiente pronto, testei o SSH do Debian pro CentOS antes de mexer em qualquer regra de firewall. Funcionou de primeira, e o `ls` mostrou a pasta que eu tinha criado, confirmando que estava no lugar certo.
 
 <p align="center">
-<img src="./images/04-teste-ssh-inicial.png" width="600">
+<img src="./imagens/04-teste-ssh-inicial.png" width="600">
 </p>
 
 ---
@@ -51,7 +51,7 @@ firewall-cmd --reload
 ```
 
 <p align="center">
-<img src="./images/05-remocao-ssh-firewall.png" width="800">
+<img src="./imagens/05-remocao-ssh-firewall.png" width="800">
 </p>
 
 ---
@@ -63,7 +63,7 @@ ssh: connect to host 10.0.0.3 port 22: No route to host
 ```
 
 <p align="center">
-<img src="./images/06-erro-conexao.png" width="600">
+<img src="./imagens/06-erro-conexao.png" width="600">
 </p>
 
 ---
@@ -76,7 +76,7 @@ firewall-cmd --reload
 ```
 
 <p align="center">
-<img src="./images/07-reversao-ssh.png" width="600">
+<img src="./imagens/07-reversao-ssh.png" width="600">
 </p>
 
 ---
@@ -85,7 +85,7 @@ firewall-cmd --reload
 Testei o SSH novamente no Debian, e dessa vez conectou normalmente.
 
 <p align="center">
-<img src="./images/08-teste-ssh-final.png" width="600">
+<img src="./imagens/08-teste-ssh-final.png" width="600">
 </p>
 
 ---

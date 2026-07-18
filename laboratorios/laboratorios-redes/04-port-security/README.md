@@ -24,7 +24,7 @@ Reutilizei a topologia criada nos laboratórios anteriores, onde já estavam con
 - **VLAN 40** - Servidor
 
 <p align="center">
-<img src="images/01-topologia.png" width="850">
+<img src="imagens/01-topologia.png" width="850">
 </p>
 
 ---
@@ -35,7 +35,7 @@ Antes de aplicar qualquer configuração, testei a conectividade das três VLANs
 Vendas e Administração continuam sem acesso à VLAN 40 (`172.16.40.2`), por causa da ACL configurada no laboratório anterior.
 
 <p align="center">
-<img src="images/02-baseline.png" width="1000">
+<img src="imagens/02-baseline.png" width="1000">
 </p>
 
 ---
@@ -46,13 +46,13 @@ Ativei o Port Security nas portas de acesso dos dois switches, limitando a 1 MAC
 **Switch 1:**
 
 <p align="center">
-<img src="images/03-port-security-switch1.png" width="1000">
+<img src="imagens/03-port-security-switch1.png" width="1000">
 </p>
 
 **Switch 2:**
 
 <p align="center">
-<img src="images/04-port-security-switch2.png" width="1000">
+<img src="imagens/04-port-security-switch2.png" width="1000">
 </p>
 
 ---
@@ -61,13 +61,13 @@ Ativei o Port Security nas portas de acesso dos dois switches, limitando a 1 MAC
 Logo depois de configurar, a tabela de MACs seguros estava vazia nos dois switches. Isso porque o modo `sticky` aprende o MAC de forma dinâmica, só quando passa tráfego de verdade pela porta, não no momento em que o comando é digitado.
 
 <p align="center">
-<img src="images/05-nenhum-mac-aprendido.png" width="1000">
+<img src="imagens/05-nenhum-mac-aprendido.png" width="1000">
 </p>
 
 Depois de dar ping entre os dispositivos, a tabela passou a mostrar o MAC de cada porta, confirmando que o aprendizado dinâmico funcionou.
 
 <p align="center">
-<img src="images/06-mac-aprendido.png" width="1000">
+<img src="imagens/06-mac-aprendido.png" width="1000">
 </p>
 
 ---
@@ -78,19 +78,19 @@ Para testar a violação, desconectei o Laptop2 da porta Fa0/5 e conectei um PC 
 O DHCP não funcionou para o PC de teste, e no início eu achei que fosse algum problema à parte. Depois de analisar o comportamento, o motivo é o próprio Port Security: como o MAC do PC de teste é diferente do que já estava salvo naquela porta, o switch derruba a porta assim que detecta o MAC errado, mesmo antes do processo de DHCP conseguir terminar. Por isso configurei IP estático, só para conseguir fazer o teste de ping.
 
 <p align="center">
-<img src="images/07-ip-pc-teste-switch1.png" width="850">
+<img src="imagens/07-ip-pc-teste-switch1.png" width="850">
 </p>
 
 Tentei o ping do PC de teste para rede da VLAN 20:
 
 <p align="center">
-<img src="images/08-ping-pc-teste-switch1.png" width="750">
+<img src="imagens/08-ping-pc-teste-switch1.png" width="750">
 </p>
 
 E confirmei a violação no log do switch, mostrando o MAC não autorizado (`0040.0B84.71E0`) e a porta indo para estado de erro (`err-disable`):
 
 <p align="center">
-<img src="images/09-violation-switch1.png" width="1000">
+<img src="imagens/09-violation-switch1.png" width="1000">
 </p>
 
 ---
@@ -99,15 +99,15 @@ E confirmei a violação no log do switch, mostrando o MAC não autorizado (`004
 Repeti o mesmo processo no Switch 2, trocando um dos dispositivos autorizados pelo PC de teste.
 
 <p align="center">
-<img src="images/10-ip-pc-teste-switch2.png" width="850">
+<img src="imagens/10-ip-pc-teste-switch2.png" width="850">
 </p>
 
 <p align="center">
-<img src="images/11-ping-pc-teste-switch2.png" width="750">
+<img src="imagens/11-ping-pc-teste-switch2.png" width="750">
 </p>
 
 <p align="center">
-<img src="images/12-violation-switch2.png" width="1000">
+<img src="imagens/12-violation-switch2.png" width="1000">
 </p>
 
 ---
@@ -116,7 +116,7 @@ Repeti o mesmo processo no Switch 2, trocando um dos dispositivos autorizados pe
 Depois de reconectar os dispositivos originais (com o MAC já autorizado na tabela), a porta continuava em estado de erro, mesmo o MAC batendo com o que já estava salvo como `sticky`.
 
 <p align="center">
-<img src="images/13-erro-conexao.png" width="850">
+<img src="imagens/13-erro-conexao.png" width="850">
 </p>
 
 Fui estudar o porquê, e entendi que o Port Security não volta sozinho de um estado de violação, mesmo com o dispositivo certo reconectado. A porta fica em `err-disable` até alguém intervir manualmente. A correção foi entrar na interface, direto no switch, e alternar o estado dela:
@@ -128,7 +128,7 @@ Switch(config-if)#no shutdown
 Repeti o mesmo processo na porta correspondente do Switch 2. Depois disso, as portas voltaram ao normal e a conectividade original foi restabelecida.
 
 <p align="center">
-<img src="images/14-reestabelecendo-conexao.png" width="1000">
+<img src="imagens/14-reestabelecendo-conexao.png" width="1000">
 </p>
 
 ---

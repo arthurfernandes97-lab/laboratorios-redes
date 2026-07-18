@@ -20,7 +20,7 @@ Usei um arquivo de captura de referência da comunidade Wireshark, focado em atr
 Abri o arquivo sem filtro nenhum pra ter uma ideia geral do tráfego. No total, **7038 pacotes**. Já dá pra ver logo no início: resolução via ARP, handshakes TCP, chamadas `Portmap` (que resolve a porta de um serviço RPC), `MOUNT` (montagem do compartilhamento) e depois as chamadas NFS propriamente ditas (`GETATTR`, `FSSTAT`, `FSINFO`, `ACCESS`).
 
 <p align="center">
-<img src="images/01-visao-geral-captura.png" width="850">
+<img src="imagens/01-visao-geral-captura.png" width="850">
 </p>
 
 ---
@@ -35,7 +35,7 @@ Isso mostra pacotes onde passou mais de 30 milissegundos (0.03s) desde a última
 No começo entendi errado o que o filtro estava mostrando, achei que a diferença de tempo era entre um resultado da lista filtrada e o próximo (por exemplo, do pacote 224 pro 400). Não é isso. Cada linha do filtro mostra o atraso daquele pacote **em relação ao pacote imediatamente anterior do mesmo stream**, no arquivo inteiro, não em relação ao resultado anterior da lista filtrada.
 
 <p align="center">
-<img src="images/02-filtro-tcp-time-delta.png" width="850">
+<img src="imagens/02-filtro-tcp-time-delta.png" width="850">
 </p>
 
 ---
@@ -50,7 +50,7 @@ tcp.stream eq 2
 Isso mostrou uma rajada de fragmentos `RPC Continuation` sendo confirmados quase instantaneamente um atrás do outro, exceto o último ACK da rajada (pacote 400), que demorou visivelmente mais.
 
 <p align="center">
-<img src="images/03-stream-isolado.png" width="850">
+<img src="imagens/03-stream-isolado.png" width="850">
 </p>
 
 ---
@@ -65,7 +65,7 @@ Abrindo os detalhes do pacote 400, no campo `[SEQ/ACK analysis]`:
 O `iRTT` é o RTT inicial da conexão, medido lá no handshake. Nesse caso, **0.098ms**, extremamente rápido, típico de rede local. Comparado com os 37ms que esse ACK específico demorou, fica claro que não é a rede que está lenta: a rede responde rápido, só esse ACK em particular demorou a ser enviado.
 
 <p align="center">
-<img src="images/04-seq-ack-analysis-pacote-400.png" width="850">
+<img src="imagens/04-seq-ack-analysis-pacote-400.png" width="850">
 </p>
 
 ---
@@ -80,7 +80,7 @@ Pra não tirar conclusão em cima de um único exemplo, testei outro pacote da l
 O `iRTT` é o mesmo (mesma conexão), e o RTT do ACK ficou bem próximo do primeiro caso (38ms contra 37ms). Valores tão parecidos entre dois eventos diferentes não parecem coincidência de rede, parecem um comportamento fixo repetido.
 
 <p align="center">
-<img src="images/05-confirmacao-pacote-1022.png" width="850">
+<img src="imagens/05-confirmacao-pacote-1022.png" width="850">
 </p>
 
 ---

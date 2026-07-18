@@ -26,7 +26,7 @@ Utilizei a mesma topologia do laboratório anterior:
 - **VLAN 40** - Servidor
 
 <p align="center">
-<img src="images/01-topologia.png" width="850">
+<img src="imagens/01-topologia.png" width="850">
 </p>
 
 ---
@@ -35,7 +35,7 @@ Utilizei a mesma topologia do laboratório anterior:
 Antes de aplicar qualquer ACL, testei a conectividade das três VLANs de cliente com o servidor. Todas responderam normalmente.
 
 <p align="center">
-<img src="images/02-teste-baseline.png" width="1000">
+<img src="imagens/02-teste-baseline.png" width="1000">
 </p>
 
 ---
@@ -61,7 +61,7 @@ interface g0/0/0.20
 ```
 
 <p align="center">
-<img src="images/03-criando-acl.png" width="600">
+<img src="imagens/03-criando-acl.png" width="600">
 </p>
 
 ---
@@ -70,7 +70,7 @@ interface g0/0/0.20
 Depois da configuração, repeti os testes de conectividade. Vendas e Administração deixaram de acessar o servidor, enquanto TI continuou acessando normalmente.
 
 <p align="center">
-<img src="images/04-testando-bloqueio-acl.png" width="1000">
+<img src="imagens/04-testando-bloqueio-acl.png" width="1000">
 </p>
 
 ---
@@ -79,7 +79,7 @@ Depois da configuração, repeti os testes de conectividade. Vendas e Administra
 Testei também se Vendas e Administração ainda se enxergavam entre si. Continuou funcionando normalmente nos dois sentidos, confirmando que a ACL bloqueou só o acesso ao servidor, não a VLAN inteira.
 
 <p align="center">
-<img src="images/05-testes-geral-ping.png" width="850">
+<img src="imagens/05-testes-geral-ping.png" width="850">
 </p>
 
 ---
@@ -88,7 +88,7 @@ Testei também se Vendas e Administração ainda se enxergavam entre si. Continu
 Como essa topologia depende de DHCP Relay, eu esperava que a ACL também bloqueasse isso, já que a regra usa `deny ip` de forma genérica, sem distinguir protocolo nem porta. Fiz o teste de qualquer forma: `ipconfig /release` seguido de `ipconfig /renew` nos clientes de Vendas e Administração.
 
 <p align="center">
-<img src="images/06-ip-release-renew.png" width="1000">
+<img src="imagens/06-ip-release-renew.png" width="1000">
 </p>
 
 Os dois pegaram IP novo normalmente, sem nenhum problema. Isso me deixou curioso, porque não era o que eu esperava.
@@ -117,7 +117,7 @@ Extended IP access list 120
 ```
 
 <p align="center">
-<img src="images/07-show-access-list.png" width="600">
+<img src="imagens/07-show-access-list.png" width="600">
 </p>
 
 ---

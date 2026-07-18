@@ -28,7 +28,7 @@ Cada departamento fica em uma rede diferente, então sem configuração nenhuma 
 ## Topologia
 
 <p align="center">
-<img src="images/01-topologia.png" width="1000">
+<img src="imagens/01-topologia.png" width="1000">
 </p>
 
 ---
@@ -65,7 +65,7 @@ Criei as VLANs 10 e 20 para representar os departamentos da empresa e utilizei a
 Na interface que liga o switch ao roteador, configurei modo trunk com encapsulamento IEEE 802.1Q e defini a VLAN 100 como nativa.
 
 <p align="center">
-<img src="images/02-config-switch.png" width="850">
+<img src="imagens/02-config-switch.png" width="850">
 </p>
 
 ---
@@ -81,7 +81,7 @@ Configurei três subinterfaces no roteador utilizando encapsulamento IEEE 802.1Q
 Cada subinterface recebeu o IP de gateway correspondente à VLAN, permitindo que o roteador enxergasse as duas redes e fizesse o roteamento entre elas.
 
 <p align="center">
-<img src="images/03-config-roteador.png" width="850">
+<img src="imagens/03-config-roteador.png" width="850">
 </p>
 
 ---
@@ -91,7 +91,7 @@ Cada subinterface recebeu o IP de gateway correspondente à VLAN, permitindo que
 Essa é a topologia final, já com as VLANs, a porta trunk e as subinterfaces do roteador configuradas.
 
 <p align="center">
-<img src="images/04-topologia-final.png" width="1000">
+<img src="imagens/04-topologia-final.png" width="1000">
 </p>
 
 ---
@@ -101,9 +101,9 @@ Essa é a topologia final, já com as VLANs, a porta trunk e as subinterfaces do
 Depois de finalizar a configuração, fiz alguns testes de ping entre as VLANs para verificar se o roteamento estava funcionando corretamente. Como os dispositivos conseguiram se comunicar, confirmei que o tráfego estava sendo encaminhado pelo roteador como esperado.
 
 <p align="center">
-<img src="images/05-teste-ping1.png" width="1200">
+<img src="imagens/05-teste-ping1.png" width="1200">
 <br><br>
-<img src="images/06-teste-ping2.png" width="1200">
+<img src="imagens/06-teste-ping2.png" width="1200">
 </p>
 
 ---

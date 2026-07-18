@@ -22,7 +22,7 @@ Usei um arquivo de captura de referência da comunidade Wireshark.
 Abri o arquivo sem filtro nenhum para ter uma visão geral do tráfego antes de começar a análise.
 
 <p align="center">
-<img src="images/01-captura-http.png" width="850">
+<img src="imagens/01-captura-http.png" width="850">
 </p>
 
 ---
@@ -36,7 +36,7 @@ Os primeiros três pacotes da captura são o handshake com o servidor na porta 8
 O domínio `www.ethereal.com` já estava resolvido antes do início da captura, por isso o handshake aparece logo no começo, sem consulta DNS antes dele.
 
 <p align="center">
-<img src="images/02-three-way-handshake.png" width="850">
+<img src="imagens/02-three-way-handshake.png" width="850">
 </p>
 
 ---
@@ -49,7 +49,7 @@ Host: www.ethereal.com
 ```
 
 <p align="center">
-<img src="images/03-http-get.png" width="850">
+<img src="imagens/03-http-get.png" width="850">
 </p>
 
 ---
@@ -60,13 +60,13 @@ Nos pacotes 13 e 17, aparece uma consulta DNS, mas não é para o domínio princ
 **Consulta (pacote 13):**
 
 <p align="center">
-<img src="images/04-dns-query.png" width="850">
+<img src="imagens/04-dns-query.png" width="850">
 </p>
 
 **Resposta (pacote 17):**
 
 <p align="center">
-<img src="images/05-dns-response.png" width="850">
+<img src="imagens/05-dns-response.png" width="850">
 </p>
 
 ---
@@ -81,7 +81,7 @@ No painel de detalhes do pacote 36, aparece:
 O Wireshark suspeita que o servidor reenviou um dado que já tinha sido entregue antes.
 
 <p align="center">
-<img src="images/06-retransmissao-suspeita.png" width="850">
+<img src="imagens/06-retransmissao-suspeita.png" width="850">
 </p>
 
 No pacote 37, o cliente confirma isso:
@@ -93,7 +93,7 @@ No pacote 37, o cliente confirma isso:
 Esse ACK é uma repetição do que já tinha sido confirmado lá no pacote 28.
 
 <p align="center">
-<img src="images/07-ack-duplicado.png" width="850">
+<img src="imagens/07-ack-duplicado.png" width="850">
 </p>
 
 Não sabia o que esses termos significavam antes de reparar nesse destaque. Fui atrás de entender, e percebi que os dois pacotes contam a mesma história: o servidor mandou algo de novo sem necessidade, e o cliente só confirmou de volta o que já tinha recebido antes.
@@ -102,7 +102,7 @@ Não sabia o que esses termos significavam antes de reparar nesse destaque. Fui 
 No pacote 38, chega a resposta completa da página principal, com status 200 OK.
 
 <p align="center">
-<img src="images/08-http-200-ok.png" width="850">
+<img src="imagens/08-http-200-ok.png" width="850">
 </p>
 
 ---
@@ -111,7 +111,7 @@ No pacote 38, chega a resposta completa da página principal, com status 200 OK.
 Depois da troca de dados, a conexão é encerrada com FIN/ACK dos dois lados.
 
 <p align="center">
-<img src="images/09-finalizacao.png" width="850">
+<img src="imagens/09-finalizacao.png" width="850">
 </p>
 
 ---

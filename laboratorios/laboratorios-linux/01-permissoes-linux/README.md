@@ -57,7 +57,7 @@ drwxrwx--- 2 root equipe 4096 Jul  7 16:44 compartilhado
 ```
 
 <p align="center">
-<img src="images/01-preparacao.png" width="850">
+<img src="imagens/01-preparacao.png" width="850">
 </p>
 
 ---
@@ -78,7 +78,7 @@ ls -l
 O grupo do arquivo veio como `joao`, não `equipe`. Faz sentido — sem SGID, o arquivo herda o grupo primário de quem criou, não o grupo do diretório. Esse é justamente o problema que o laboratório se propõe a resolver.
 
 <p align="center">
-<img src="images/02-sem-sgid.png" width="850">
+<img src="imagens/02-sem-sgid.png" width="850">
 </p>
 
 ---
@@ -99,7 +99,7 @@ drwxrws--- 2 root equipe 4096 Jul  7 17:02 compartilhado
 O `s` no lugar do `x` da permissão de grupo confirma que o SGID está ativo.
 
 <p align="center">
-<img src="images/03-aplicando-sgid.png" width="850">
+<img src="imagens/03-aplicando-sgid.png" width="850">
 </p>
 
 ---
@@ -119,7 +119,7 @@ ls -l
 Dessa vez o grupo do arquivo saiu `equipe`, herdado do diretório. Dá pra ver bem a diferença comparando as duas linhas — mesmo usuário (`joao`), mas grupo diferente dependendo de se o SGID estava ativo ou não na hora da criação.
 
 <p align="center">
-<img src="images/04-comparando.png" width="850">
+<img src="imagens/04-comparando.png" width="850">
 </p>
 
 ---
@@ -152,7 +152,7 @@ rm -rf teste-com-sgid.txt
 Bloqueou nas duas tentativas, mesmo com o `-f`. Isso confirma que a restrição é do sistema de arquivos mesmo, não é só uma confirmação que o `rm` pede e o `-f` pula.
 
 <p align="center">
-<img src="images/05-sticky-bit.png" width="850">
+<img src="imagens/05-sticky-bit.png" width="850">
 </p>
 
 ---

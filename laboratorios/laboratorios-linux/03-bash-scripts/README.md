@@ -12,12 +12,12 @@ Nesse laboratório comecei a estudar Bash criando um script interativo em format
 ## Criação do arquivo
 Criei o script com `touch` e ajustei a permissão de execução com `chmod u+x`.
 
-![Criação do arquivo](./images/01-criacao-menu-admin.png)
+![Criação do arquivo](./imagens/01-criacao-menu-admin.png)
 
 ## Desenvolvimento do script
 Usei o editor `vim` para desenvolver o script.
 
-![Desenvolvimento do script](./images/02-desenvolvimento-script.png)
+![Desenvolvimento do script](./imagens/02-desenvolvimento-script.png)
 
 ---
 
@@ -112,25 +112,25 @@ done
 
 **Opção 1, Informações do Sistema:** mostra hostname, usuário logado e versão do kernel.
 
-![Teste opção 1](./images/03-teste-opcao-1.png)
+![Teste opção 1](./imagens/03-teste-opcao-1.png)
 
 ---
 
 **Opção 2, Uso de disco:** roda `df -h` para mostrar espaço livre e ocupado.
 
-![Teste opção 2](./images/04-teste-opcao-2.png)
+![Teste opção 2](./imagens/04-teste-opcao-2.png)
 
 ---
 
 **Opção 3, Memória:** roda `free -h` para mostrar uso de RAM e swap.
 
-![Teste opção 3](./images/05-teste-opcao-3.png)
+![Teste opção 3](./imagens/05-teste-opcao-3.png)
 
 ---
 
 **Opção 4, Backup:** compacta o diretório home num `.tar.gz` com timestamp, salvo em `~/backups`.
 
-![Teste opção 4](./images/06-teste-opcao-4.png)
+![Teste opção 4](./imagens/06-teste-opcao-4.png)
 
 Nesse teste dá pra ver dois arquivos de backup já acumulados em `~/backups`, cada um com timestamp diferente. Isso confirma que o `mkdir -p` não recria nem duplica a pasta a cada execução, só garante que ela exista. Quem gera um arquivo novo por vez é o `tar`.
 
@@ -142,7 +142,7 @@ Ao testar a opção 5 (Logs), o `journalctl -n 20` falhou:
 No journal files were opened due to insufficient permissions.
 ```
 
-![Erro na opção 5](./images/07-erro-opcao-5.png)
+![Erro na opção 5](./imagens/07-erro-opcao-5.png)
 
 A causa: por padrão, só usuários dos grupos `adm`, `systemd-journal` ou `wheel` (ou root) conseguem ler os arquivos de journal do systemd. O usuário comum que eu estava usando não fazia parte de nenhum desses grupos.
 
@@ -152,18 +152,18 @@ Resolvi adicionando o usuário ao grupo `systemd-journal`:
 usermod -aG systemd-journal arthur
 ```
 
-![Solução da opção 5](./images/08-solucao-opcao-5.png)
+![Solução da opção 5](./imagens/08-solucao-opcao-5.png)
 
 Depois de relogar (para sessão pegar a nova associação de grupo), a opção 5 passou a funcionar sem precisar de `sudo`.
 
-![Teste da opção 5 funcionando](./images/09-teste-opcao-5.png)
+![Teste da opção 5 funcionando](./imagens/09-teste-opcao-5.png)
 
 ---
 
 ## Testando opção inexistente
 Testei uma opção fora do menu para confirmar que o `else` trata isso direito, mostra "Opção inválida!" e o loop continua, sem quebrar o script.
 
-![Teste de opção inexistente](./images/10-teste-opcao-inexistente.png)
+![Teste de opção inexistente](./imagens/10-teste-opcao-inexistente.png)
 
 ---
 
