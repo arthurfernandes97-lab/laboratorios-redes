@@ -26,7 +26,7 @@ Abri o arquivo sem filtro nenhum para ter uma visão geral do tráfego antes de 
 Reparei que origem e destino aparecem sempre como `127.0.0.1`, o endereço de loopback. Tráfego para esse IP nunca sai da máquina, vai da aplicação para a pilha de rede local e volta, sem passar por nenhuma interface física. Isso indica que a captura foi gerada com cliente e servidor rodando na mesma máquina, ou que os IPs reais foram trocados por loopback antes de a captura ser disponibilizada para a comunidade.
 
 <p align="center">
-<img src="images/01-captura-https.png" width="850">
+<img src="imagens/01-captura-https.png" width="850">
 </p>
 
 ---
@@ -38,7 +38,7 @@ Os primeiros três pacotes da captura são o handshake com o servidor na porta 4
 - **ACK:** o cliente confirma, e a conexão fica estabelecida.
 
 <p align="center">
-<img src="images/02-three-way-handshake.png" width="850">
+<img src="imagens/02-three-way-handshake.png" width="850">
 </p>
 
 ---
@@ -57,7 +57,7 @@ O Wireshark identifica o protocolo como **SSLv3**, e não TLS. SSL 3.0 é o ante
 
 
 <p align="center">
-<img src="images/03-tls-handshake.png" width="1000">
+<img src="imagens/03-tls-handshake.png" width="1000">
 </p>
 
 ---
@@ -66,13 +66,13 @@ O Wireshark identifica o protocolo como **SSLv3**, e não TLS. SSL 3.0 é o ante
 Sem carregar a chave privada, o pacote 19 `(Application Data)` aparece com o conteúdo completamente ilegível.
 
 <p align="center">
-<img src="images/04-application-data-criptografado.png" width="1000">
+<img src="imagens/04-application-data-criptografado.png" width="1000">
 </p>
 
 Segui o fluxo TCP completo dessa conversa (`tcp.stream eq 0`) pra visualizar melhor. Boa parte do conteúdo está criptografado, mas no início do fluxo dá pra ver alguns trechos legíveis, como `Snake Oil, Ltd`, `Certificate Authority` e `www@snakeoil.dom`. Isso não é dado decriptado, é o certificado digital do servidor que trafega em texto claro durante o handshake (pacote 6).
 
 <p align="center">
-<img src="images/05-follow-tcp-stream.png" width="500">
+<img src="imagens/05-follow-tcp-stream.png" width="500">
 </p>
 
 ---
@@ -85,7 +85,7 @@ Carreguei a chave privada em **Editar → Preferências → Protocols → TLS �
 - **Key File:** o arquivo `snakeoil2.key`
 
 <p align="center">
-<img src="images/06-configuracao-chave-rsa.png" width="650">
+<img src="imagens/06-configuracao-chave-rsa.png" width="650">
 </p>
 
 ---
@@ -98,7 +98,7 @@ Host: localhost
 ```
 
 <p align="center">
-<img src="images/07-http-get-decriptado.png" width="850">
+<img src="imagens/07-http-get-decriptado.png" width="850">
 </p>
 
 E no pacote 19, a resposta completa do servidor:
@@ -109,13 +109,13 @@ Content-Type: text/html; charset=UTF-8
 ```
 
 <p align="center">
-<img src="images/08-http-200-ok-decriptado.png" width="850">
+<img src="imagens/08-http-200-ok-decriptado.png" width="850">
 </p>
 
 Segui essa mesma conexão usando **Follow TLS Stream**:
 
 <p align="center">
-<img src="images/09-follow-tls-stream.png" width="500">
+<img src="imagens/09-follow-tls-stream.png" width="500">
 </p>
 
 ---
@@ -129,7 +129,7 @@ A captura tem uma segunda sessão TCP/TLS completa mais adiante (porta de origem
 Isso mostra o navegador buscando recursos adicionais da página depois do HTML principal, sendo que um deles falha.
 
 <p align="center">
-<img src="images/10-segunda-conexao-tls.png" width="850">
+<img src="imagens/10-segunda-conexao-tls.png" width="850">
 </p>
 
 ---
