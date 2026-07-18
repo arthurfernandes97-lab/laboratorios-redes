@@ -22,6 +22,7 @@ Estudos de captura e análise de pacotes com Wireshark.
 - [01 - TCP Handshake e Resolução DNS](./laboratorios/analise-de-trafego/01-tcp-handshake-dns)
 - [02 - Análise de Latência TCP: Delayed ACK](./laboratorios/analise-de-trafego/02-analise-latencia-tcp)
 - [03 - Análise de uma Navegação HTTP](./laboratorios/analise-de-trafego/03-analise-http)
+- [04 - Análise de uma Navegação HTTPS](./laboratorios/analise-de-trafego/04-analise-https)
 
 ## 🐧 Laboratórios Linux
 Laboratórios práticos de administração, permissões e automação em GNU/Linux, entre Debian e CentOS.
