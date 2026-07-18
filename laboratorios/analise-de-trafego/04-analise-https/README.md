@@ -26,7 +26,7 @@ Abri o arquivo sem filtro nenhum para ter uma visão geral do tráfego antes de 
 Reparei que origem e destino aparecem sempre como `127.0.0.1`, o endereço de loopback. Tráfego para esse IP nunca sai da máquina, vai da aplicação para a pilha de rede local e volta, sem passar por nenhuma interface física. Isso indica que a captura foi gerada com cliente e servidor rodando na mesma máquina, ou que os IPs reais foram trocados por loopback antes de a captura ser disponibilizada para a comunidade.
 
 <p align="center">
-<img src="images/01-captura-https.png" width="700">
+<img src="images/01-captura-https.png" width="850">
 </p>
 
 ---
@@ -38,7 +38,7 @@ Os primeiros três pacotes da captura são o handshake com o servidor na porta 4
 - **ACK:** o cliente confirma, e a conexão fica estabelecida.
 
 <p align="center">
-<img src="images/02-three-way-handshake.png" width="700">
+<img src="images/02-three-way-handshake.png" width="850">
 </p>
 
 ---
@@ -98,7 +98,7 @@ Host: localhost
 ```
 
 <p align="center">
-<img src="images/07-http-get-decriptado.png" width="700">
+<img src="images/07-http-get-decriptado.png" width="850">
 </p>
 
 E no pacote 19, a resposta completa do servidor:
@@ -109,7 +109,7 @@ Content-Type: text/html; charset=UTF-8
 ```
 
 <p align="center">
-<img src="images/08-http-200-ok-decriptado.png" width="700">
+<img src="images/08-http-200-ok-decriptado.png" width="850">
 </p>
 
 Segui essa mesma conexão usando **Follow TLS Stream**:
@@ -129,7 +129,7 @@ A captura tem uma segunda sessão TCP/TLS completa mais adiante (porta de origem
 Isso mostra o navegador buscando recursos adicionais da página depois do HTML principal, sendo que um deles falha.
 
 <p align="center">
-<img src="images/10-segunda-conexao-tls.png" width="700">
+<img src="images/10-segunda-conexao-tls.png" width="850">
 </p>
 
 ---
