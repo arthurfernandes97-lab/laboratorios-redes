@@ -15,7 +15,7 @@ Laboratórios de redes de computadores usando Cisco Packet Tracer: VLANs, roteam
 - [02 - DHCP Relay com Múltiplas VLANs](./laboratorios/laboratorios-redes/02-dhcp-relay-vlans)
 - [03 - ACL: Restrição de Acesso ao Servidor](./laboratorios/laboratorios-redes/03-acl-restricao-servidor)
 - [04 - Port Security](./laboratorios/laboratorios-redes/04-port-security)
-
+- [05- Roteamento Estático: Interligação de Filial via ISP](./laboratorios/laboratorios-redes/05-roteamento-estatico-matriz-filial-isp)
 ## 🦈 Análise de Tráfego
 Estudos de captura e análise de pacotes com Wireshark.
 
