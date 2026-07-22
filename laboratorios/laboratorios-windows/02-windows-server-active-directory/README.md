@@ -61,7 +61,7 @@ Depois da instalação e do primeiro reinício, o sistema ficou pronto para rece
 
 ---
 
-## Etapa 4 - Preparação Inicial do Servidor
+## Etapa 4 - Guest Additions e Atualizações
 
 Depois de concluir a instalação do sistema operacional, instalei o **VirtualBox Guest Additions** para melhorar a integração entre a máquina virtual e o sistema hospedeiro.
 
@@ -75,13 +75,13 @@ Não instalei nenhum aplicativo adicional na VM. Diferente de uma estação de t
 
 ---
 
-## Etapa 5 - Configuração Inicial do Servidor
+## Etapa 5 - Configuração de Identidade e Rede
 
 Com o sistema atualizado, realizei algumas configurações básicas antes da instalação do Active Directory.
 
-Primeiro alterei o nome do computador para SRV-TI-01. Depois renomeei as interfaces de rede para facilitar sua identificação durante os próximos laboratórios. Na interface da rede interna configurei um endereço IPv4 estático, já que um Controlador de Domínio deve possuir endereço IP fixo. Por fim, utilizei os comandos ipconfig /all e ping para validar a configuração da rede.
+Primeiro alterei o nome do computador para **SRV-TI-01**. Depois renomeei as interfaces de rede para facilitar sua identificação durante os próximos laboratórios. Na interface da rede interna configurei um endereço IPv4 estático, já que um Controlador de Domínio deve possuir endereço IP fixo. Por fim, utilizei os comandos **ipconfig /all** e **ping** para validar a configuração da rede.
 
-<p align="center"><img src="imagens/14-renomeando-servidor.png" width="850"></p>
+<p align="center"><img src="imagens/14-renomeando-servidor.png" width="400"></p>
 
 <p align="center"><img src="imagens/15-renomeando-adaptadores-rede.png" width="850"></p>
 
@@ -99,24 +99,27 @@ Com a configuração inicial concluída, utilizei o **Server Manager** para inst
 
 Durante esse processo o Windows Server também adicionou automaticamente os recursos necessários para o funcionamento do serviço.
 
-<p align="center"><img src="imagens/19-instalacao-role-ad-ds.png" width="850"></p>
+<p align="center"><img src="imagens/19-instalacao-role-ad-ds.png" width="750"></p>
 
 ---
 
 ## Etapa 7 - Promoção do Servidor a Controlador de Domínio
 
-Após instalar a função AD DS, promovi o servidor a Controlador de Domínio, criando uma nova floresta chamada **empresa.local**.
+Após instalar a função **AD DS**, promovi o servidor a **Controlador de Domínio**, criando uma nova floresta chamada **empresa.local**.
 
+Floresta é o nível mais alto da estrutura do Active Directory. Ela funciona como um contêiner que agrupa um ou mais domínios, e é dentro dela que ficam as configurações de segurança e os relacionamentos de confiança compartilhados entre todos os domínios que fizerem parte da mesma estrutura. Como esse é o primeiro servidor do ambiente, foi necessário criar uma nova floresta, pois ainda não existia um domínio ao qual ele pudesse ser integrado.
 
-<p align="center"><img src="imagens/21-criacao-floresta-empresa-local.png" width="850"></p>
+<p align="center"><img src="imagens/20-criacao-floresta-empresa-local.png" width="750"></p>
+
+---
 
 ## Etapa 8 - Validação do Controlador de Domínio
 
 Depois da promoção e do reinício do sistema, realizei o primeiro logon utilizando a conta de administrador do domínio e confirmei que o servidor já fazia parte do domínio criado.
 
-<p align="center"><img src="imagens/22-primeiro-logon-dominio.png" width="850"></p>
+<p align="center"><img src="imagens/21-primeiro-logon-dominio.png" width="850"></p>
 
-<p align="center"><img src="imagens/23-servidor-pronto-active-directory.png" width="850"></p>
+<p align="center"><img src="imagens/22-servidor-pronto-active-directory.png" width="850"></p>
 
 ---
 
@@ -126,7 +129,7 @@ Com toda a configuração concluída, criei um snapshot da máquina virtual.
 
 Esse snapshot servirá como ponto de restauração para os próximos laboratórios, permitindo retornar rapidamente ao servidor já configurado como Controlador de Domínio caso seja necessário.
 
-<p align="center"><img src="imagens/24-snapshot.png" width="850"></p>
+<p align="center"><img src="imagens/23-snapshot.png" width="850"></p>
 
 ---
 
@@ -134,7 +137,7 @@ Esse snapshot servirá como ponto de restauração para os próximos laboratóri
 
 Neste laboratório preparei um ambiente Windows Server desde a criação da máquina virtual até sua promoção a Controlador de Domínio utilizando o Active Directory Domain Services.
 
-A partir dessa base, os próximos laboratórios poderão ser focados na administração do ambiente, incluindo criação de usuários e grupos, unidades organizacionais (OUs), Group Policy, DNS, DHCP e demais recursos do Active Directory.
+A partir dessa base, os próximos laboratórios serão voltados para a administração do ambiente, incluindo a criação de usuários e grupos, unidades organizacionais (OUs), Group Policy, DNS, DHCP e outros recursos do Active Directory.
 
 ## Autor
 
