@@ -1,12 +1,23 @@
 <h1 align="center">Portfólio: Redes, Infraestrutura e Administração de Sistemas</h1>
 
 <p align="center">
-Estudante de Ciência da Computação, em transição de carreira para Suporte Técnico, Infraestrutura, Redes e NOC. Contato: <a href="https://www.linkedin.com/in/arthur-fernandes-289395272">LinkedIn</a>
+Estudante de Ciência da Computação, em transição de carreira para Suporte Técnico, Infraestrutura, Redes e NOC. Contato: <a href="https://www.linkedin.com/in/arthur-fernandes-289395272">LinkedIn</a> • <a href="https://github.com/arthurfernandes97">Perfil GitHub</a>
 </p>
+
+
+Este repositório reúne laboratórios práticos que venho desenvolvendo enquanto estudo redes de computadores, administração de sistemas Windows e GNU/Linux, infraestrutura e análise de tráfego. Cada laboratório possui um README próprio documentando o cenário, as configurações realizadas, os testes executados e, quando necessário, os problemas encontrados durante a implementação e como foram resolvidos.
 
 ---
 
-Este repositório reúne laboratórios práticos que venho desenvolvendo enquanto estudo redes de computadores, administração de sistemas Windows e GNU/Linux, infraestrutura e análise de tráfego. Cada laboratório possui um README próprio documentando o cenário, as configurações realizadas, os testes executados e, quando necessário, os problemas encontrados durante a implementação e como foram resolvidos.
+## 💻 Habilidades Técnicas
+
+| Área | Tecnologias |
+|---|---|
+| Redes | Cisco IOS, VLAN, DHCP Relay, ACL, Port Security, Roteamento Estático |
+| Análise de Tráfego | Wireshark, TCP/IP, DNS, HTTP/HTTPS |
+| Windows | Windows 11, Windows Server 2025 |
+| Linux | Debian, CentOS, firewalld, Bash Script |
+| Ferramentas | Git, GitHub, VirtualBox |
 
 ## 🌐 Laboratórios de Redes
 
