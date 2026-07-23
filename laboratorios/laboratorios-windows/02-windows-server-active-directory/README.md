@@ -103,11 +103,11 @@ Durante esse processo o Windows Server também adicionou automaticamente os recu
 
 ## Etapa 7 - Promoção do Servidor a Controlador de Domínio
 
-Após instalar a função **AD DS**, promovi o servidor a **Controlador de Domínio**, criando uma nova floresta chamada **empresa.local**.
+Após instalar a função **AD DS**, promovi o servidor a **Controlador de Domínio**, criando uma nova floresta chamada **arthurtech.local**.
 
 Floresta é o nível mais alto da estrutura do Active Directory. Ela funciona como um contêiner que agrupa um ou mais domínios, e é dentro dela que ficam as configurações de segurança e os relacionamentos de confiança compartilhados entre todos os domínios que fizerem parte da mesma estrutura. Como esse é o primeiro servidor do ambiente, foi necessário criar uma nova floresta, pois ainda não existia um domínio ao qual ele pudesse ser integrado.
 
-<p align="center"><img src="imagens/19-criacao-floresta-empresa-local.png" width="750"></p>
+<p align="center"><img src="imagens/19-criacao-floresta.png" width="750"></p>
 
 ---
 
